@@ -8,8 +8,8 @@ pipeline{
                 sh "git clone https://github.com/hugo01718/SpringBootHelloWorld3.git/"
                 sh "mvn clean -f SpringBootHelloWorld3"
                 sh "mvn package -f SpringBootHelloWorld3"
-		sh "docker build . -t springboot_dockerimage"
-		sh "docker login -u hugo01718 -p 213456789"
+		sh "mvn install dockerfile:build"
+		//sh "docker login -u hugo01718 -p 213456789"
 		//sh "docker push springboot_dockerimage"
             }
         }
