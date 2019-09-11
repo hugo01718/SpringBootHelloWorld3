@@ -17,9 +17,8 @@ pipeline{
         stage('Deploy DEV'){
             steps{
                 echo "Deploy DEV now......"
-                oc cluster up
-                oc login -u $username -p $password
-                oc project dev
+                //oc login -u $username -p $password
+                //oc project dev
                 //oc new-app springboot_dockerimage
             }
         }
@@ -31,8 +30,8 @@ pipeline{
         stage('Deploy UAT'){
             steps{
                 echo "Deploy UAT now......"
-                oc login -u $username -p $password
-                oc project qa
+                //oc login -u $username -p $password
+                //oc project qa
                 //oc new-app springboot_dockerimage
             }
         }
