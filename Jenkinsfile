@@ -17,6 +17,7 @@ pipeline{
         stage('Deploy DEV'){
             steps{
                 echo "Deploy DEV now......"
+                oc cluster up
                 oc login -u $username -p $password
                 oc project dev
                 //oc new-app springboot_dockerimage
