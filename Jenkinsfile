@@ -17,7 +17,7 @@ pipeline{
         stage('Deploy DEV'){
             steps{
                 echo "Deploy DEV now......"
-                script{
+                /*script{
                     openshift.withCluster(){
                         openshift.withProject(DEV){
                             openshift.newBuild("--name = \"springapp\"", "--docker-image=docker.io/nginx:mainline-alpine", "--binary=true")
@@ -26,7 +26,7 @@ pipeline{
                             def dc = openshift.selector("dc", "springapp")
                         }
                     }
-                }
+                }*/
                 //sh "oc login -u hugo01718 -p 213456789"
                 //sh "oc project dev"
                 //sh "oc new-app springboot_dockerimage"
@@ -40,9 +40,9 @@ pipeline{
         stage('Deploy UAT'){
             steps{
                 echo "Deploy UAT now......"
-                //openshift.withCluster(){
+                /*openshift.withCluster(){
 
-                //}
+                }*/
                 //sh "oc login -u hugo01718 -p 213456789"
                 //sh "oc project qa"
                 //sh "oc new-app springboot_dockerimage"
