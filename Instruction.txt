@@ -1,0 +1,14 @@
+1. Setup a sample spring boot application " a simple hello world" is fine and put those source in GitHub.
+
+------------------------------------------------------------------------------
+
+2. Setup Jenkins container image as CI/CD tool with the following Jenkins pipeline stages with minishift (the container management platform)
+	
+	Build App: Build the docker image of spring boot
+	Deploy DEV: Deploy the app to DEV namespace in minishift
+	Promote to UAT: Approval is required before deploying to UAT
+	Deploy UAT: Deploy the app to QA namespace in minishift
+
+------------------------------------------------------------------------------
+
+3. Make some source code changes on GitHub, trigger auto-build by Jenkins and run through the pipeline.
