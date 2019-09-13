@@ -17,12 +17,14 @@ pipeline{
         stage('Deploy DEV'){
             steps{
                 echo "Deploy DEV now......"
-                openshift.withCluster(){
-                    openshift.withProject(DEV){
-                        openshift.newBuild("--name = \"springapp\"", "--docker-image=docker.io/nginx:mainline-alpine", "--binary=true")
-                        def app = openshift.newApp("springapp:lastest")
-                        app.narrow("svc").expose("--port=8081")
-                        def dc = openshift.selector("dc", "springapp")
+                script{
+                    openshift.withCluster(){
+                        openshift.withProject(DEV){
+                            openshift.newBuild("--name = \"springapp\"", "--docker-image=docker.io/nginx:mainline-alpine", "--binary=true")
+                            def app = openshift.newApp("springapp:lastest")
+                            app.narrow("svc").expose("--port=8081")
+                            def dc = openshift.selector("dc", "springapp")
+                        }
                     }
                 }
                 //sh "oc login -u hugo01718 -p 213456789"
