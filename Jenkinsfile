@@ -17,7 +17,7 @@ pipeline{
         stage('Deploy DEV'){
             steps{
                 echo "Deploy DEV now......"
-                oc login -u system:admin
+                oc login -u hugo01718 -p 213456789
                 oc project dev
                 oc new-app springboot_dockerimage
             }
@@ -30,7 +30,7 @@ pipeline{
         stage('Deploy UAT'){
             steps{
                 echo "Deploy UAT now......"
-                oc login -u system:admin
+                oc login -u hugo01718 -p 213456789
                 oc project qa
                 oc new-app springboot_dockerimage
             }
