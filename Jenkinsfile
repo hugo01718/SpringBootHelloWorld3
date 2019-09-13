@@ -19,7 +19,7 @@ pipeline{
                 echo "Deploy DEV now......"
                 oc login -u hugo01718 -p 213456789
                 oc project dev
-                oc new-app springboot_dockerimage
+                //oc new-app springboot_dockerimage
             }
         }
         stage('Promote to UAT'){
@@ -32,7 +32,7 @@ pipeline{
                 echo "Deploy UAT now......"
                 oc login -u hugo01718 -p 213456789
                 oc project qa
-                oc new-app springboot_dockerimage
+                //oc new-app springboot_dockerimage
             }
         }
     }   
